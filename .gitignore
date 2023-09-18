@@ -1,6 +1,7 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
-.vs/
-x64/
-.git/
+*.vs/
+*x64/
+*.git/
+*.sqlite
