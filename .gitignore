@@ -1,3 +1,9 @@
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+.vs/IterationMethodcalc1/FileContentIndex/read.lock
+.vs/IterationMethodcalc1/v17/.wsuo
+.vs/IterationMethodcalc1/FileContentIndex/5f1589c0-5b92-4641-a8ce-8aaa70b38d71.vsidx
+.vs/IterationMethodcalc1/v17/Browse.VC.db
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
