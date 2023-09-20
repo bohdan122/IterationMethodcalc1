@@ -13,6 +13,36 @@ public class Calculator : MonoBehaviour
     private List<double> B = new List<double>();
     public List<serializableClass> A = new List<serializableClass>();
     public List<double> X = new List<double>();
+
+    public int whatmethodoweusetellmepls = 0;
+
+    [SerializeField] GameObject outManager;
+    public void DoShit(int num)
+    {
+        whatmethodoweusetellmepls = num;
+    }
+
+    public void CalculateThishShit( int Count)
+    {
+        if (whatmethodoweusetellmepls == 0)
+        {
+            itrerationMethod(Count);
+        }
+        else
+        {
+            seidelMethod(Count);
+        }
+
+        for (int i = 0; i < X.Count; i++)
+        {
+            Debug.Log(X[i].ToString());
+        }
+        outManager.GetComponent<outputManageer>().outputNumbers(X);
+    }
+
+
+
+
     private void Start()
     {
 
@@ -85,23 +115,22 @@ public class Calculator : MonoBehaviour
     public void itrerationMethod( int Count)
     {
 
-
-        List<double> X = B;
+        for (int i = 0; i < X.Count; i++)
+        {
+            X[i] = B[i];
+        }
         for (int i = 0; i < Count; i++)
         {
             X = Plus(B, Multi(A, X));
         }
 
-        for (int i = 0; i < X.Count; i++)
-        {
-            Debug.Log(X[i].ToString());
-        }
+        
     }
 
     public void seidelMethod( int Count)
     {
-        
-        for(int i = 0; i < X.Count; i++)
+
+        for (int i = 0; i < X.Count; i++)
         {
             X[i] = B[i];
         }
@@ -114,10 +143,7 @@ public class Calculator : MonoBehaviour
             }
 
         }
-        for (int i = 0; i < X.Count; i++)
-        {
-            Debug.Log(X[i].ToString());
-        }
+        
         
     }
 }

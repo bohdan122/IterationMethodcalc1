@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\Calculator.cs" />
+    <Compile Include="Assets\Scripts\outputManageer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
