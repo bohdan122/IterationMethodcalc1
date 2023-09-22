@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,20 @@ using UnityEngine;
 public class Calculator : MonoBehaviour
 {
 
+
     [System.Serializable]
     public class serializableClass
     {
         public List<double> sampleList = new List<double>();
     }
-    private List<double> B = new List<double>();
+    [SerializeField] private List<double> B = new List<double>();
+    [SerializeField] private List<double> B_start = new List<double>();
     public List<serializableClass> A = new List<serializableClass>();
-    public List<double> X = new List<double>();
+    public List<serializableClass> A_start = new List<serializableClass>();
+
+    [SerializeField] public List<double> X = new List<double>();
+
+    private double mistake;
 
     public int whatmethodoweusetellmepls = 0;
 
@@ -43,12 +50,20 @@ public class Calculator : MonoBehaviour
 
 
 
+
     private void Start()
     {
 
+
+
+
         A.Add(new serializableClass());
         A.Add(new serializableClass());
         A.Add(new serializableClass());
+
+        A_start.Add(new serializableClass());
+        A_start.Add(new serializableClass());
+        A_start.Add(new serializableClass());
 
         A[0].sampleList.Add(0);
         A[0].sampleList.Add(0);
@@ -59,31 +74,52 @@ public class Calculator : MonoBehaviour
         A[2].sampleList.Add(0);
         A[2].sampleList.Add(0);
         A[2].sampleList.Add(0);
+
+        A_start[0].sampleList.Add(0);
+        A_start[0].sampleList.Add(0);
+        A_start[0].sampleList.Add(0);
+        A_start[1].sampleList.Add(0);
+        A_start[1].sampleList.Add(0);
+        A_start[1].sampleList.Add(0);
+        A_start[2].sampleList.Add(0);
+        A_start[2].sampleList.Add(0);
+        A_start[2].sampleList.Add(0);
+
+
 
 
         for (int j = 0; j < 3; j++)
         {
             B.Add(default(double));
+
+        }
+        for (int j = 0; j < 3; j++)
+        {
+            B_start.Add(default(double));
+
         }
         for (int j = 0; j < 3; j++)
         {
             X.Add(default(double));
+
         }
-
-
 
     }
 
     public void Getnumber(int x, int y, double number)
     {
+        if (x == 4)
+        {
+            mistake = number;
+        }
         if (x==3)
         {
-            B[y] = number;
-            X[y] = number;
+            B_start[y] = number;
+            B_start[y] = number;
         }
         else
         {
-            A[x].sampleList[y] = number;
+            A_start[x].sampleList[y] = number;
         }
     }
 
@@ -112,29 +148,46 @@ public class Calculator : MonoBehaviour
 
         return result;
     }
-    public void itrerationMethod( int Count)
+    private void itrerationMethod( int Count)
     {
+        transformMatrix();
 
-        for (int i = 0; i < X.Count; i++)
-        {
-            X[i] = B[i];
-        }
+
         for (int i = 0; i < Count; i++)
         {
             X = Plus(B, Multi(A, X));
         }
 
-        
+
+    }
+    void transformMatrix()
+    {
+        for(int i = 0;i < 3;i++) {
+            double max = A_start[i].sampleList[i];
+            for (int j = 0; j < 3; j++)
+            {
+                if(i==j)
+                {
+                    A[i].sampleList[j] = 0;
+                    continue;
+                }
+                
+                A[i].sampleList[j] = (0-A_start[i].sampleList[j])/ max;
+
+            }
+            B[i] = B_start[i] / max;
+            X[i] = B_start[i] / max;
+        }
     }
 
-    public void seidelMethod( int Count)
+    private void seidelMethod(int Count)
     {
 
-        for (int i = 0; i < X.Count; i++)
-        {
-            X[i] = B[i];
-        }
 
+
+
+        transformMatrix();
+        
         for (int h = 0; h < Count; h++)
         {
             for (int i = 0; i < X.Count; i++)
@@ -143,7 +196,6 @@ public class Calculator : MonoBehaviour
             }
 
         }
-        
-        
+
     }
 }

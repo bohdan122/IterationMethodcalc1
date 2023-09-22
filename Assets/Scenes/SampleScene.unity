@@ -1192,7 +1192,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &406365648
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1297,7 +1297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42700571aa6d39440a6a4e59fa8e39c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  B: []
+  B_start: []
   A: []
+  A_start: []
   X: []
   whatmethodoweusetellmepls: 0
   outManager: {fileID: 2035409803}
@@ -1529,7 +1532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &658979787
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1723,7 +1726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &750931396
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2692,7 +2695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1030238195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3203,7 +3206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1103357562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3453,7 +3456,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1116774815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3532,7 +3535,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1134952786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3611,7 +3614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1138878017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3822,10 +3825,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 380, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4908,7 +4911,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1377527582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5278,7 +5281,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1542594694
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6070,7 +6073,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1694589552
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6544,7 +6547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: 
 --- !u!222 &1877567921
 CanvasRenderer:
   m_ObjectHideFlags: 0
