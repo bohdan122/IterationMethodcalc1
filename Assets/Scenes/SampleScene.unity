@@ -507,7 +507,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420033}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: next_previous
+        m_MethodName: ChangeIteration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1430,12 +1430,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42700571aa6d39440a6a4e59fa8e39c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beta: []
   B: []
-  B_start: []
+  alpha: []
   A: []
-  A_start: []
   X: []
-  whatmethodoweusetellmepls: 0
+  method: 0
   outManager: {fileID: 2035409803}
 --- !u!1 &525170711
 GameObject:
@@ -4198,7 +4198,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420033}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: DoShit
+        m_MethodName: CangeMethod
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7390,7 +7390,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420033}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: next_previous
+        m_MethodName: ChangeIteration
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
