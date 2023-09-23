@@ -22,22 +22,40 @@ public class Calculator : MonoBehaviour
     private double mistake;
 
     public int whatmethodoweusetellmepls = 0;
+    
+    private int itertion_count;
+
 
     [SerializeField] GameObject outManager;
     public void DoShit(int num)
     {
         whatmethodoweusetellmepls = num;
+        CalculateThishShit();
     }
 
-    public void CalculateThishShit( int Count)
+    public void next_previous(int num) {
+     if(!(itertion_count == 0 && num == -1))
+        {
+            itertion_count += num;
+        }
+     CalculateThishShit();
+    }
+
+    public void Button(int num)
+    {
+        itertion_count = num;
+        CalculateThishShit();
+    }
+
+    public void CalculateThishShit()
     {
         if (whatmethodoweusetellmepls == 0)
         {
-            itrerationMethod(Count);
+            itrerationMethod(itertion_count);
         }
         else
         {
-            seidelMethod(Count);
+            seidelMethod(itertion_count);
         }
 
         for (int i = 0; i < X.Count; i++)
@@ -45,6 +63,7 @@ public class Calculator : MonoBehaviour
             Debug.Log(X[i].ToString());
         }
         outManager.GetComponent<outputManageer>().outputNumbers(X);
+        outManager.GetComponent<outputManageer>().outputIteration(itertion_count);
     }
 
 
@@ -54,7 +73,7 @@ public class Calculator : MonoBehaviour
     private void Start()
     {
 
-
+        itertion_count = 0;
 
 
         A.Add(new serializableClass());
@@ -182,12 +201,8 @@ public class Calculator : MonoBehaviour
 
     private void seidelMethod(int Count)
     {
-
-
-
-
         transformMatrix();
-        
+     
         for (int h = 0; h < Count; h++)
         {
             for (int i = 0; i < X.Count; i++)

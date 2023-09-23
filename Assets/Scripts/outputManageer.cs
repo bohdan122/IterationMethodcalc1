@@ -20,4 +20,11 @@ public class outputManageer : MonoBehaviour
         }
     }
 
+    public void outputIteration(int num)
+    {
+        
+            outputTexts[3].text =  "Iteration: " + num;
+        
+    }
+
 }
