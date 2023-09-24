@@ -26,7 +26,7 @@ public class Calculator : MonoBehaviour
 
     [SerializeField] public List<double> X = new List<double>();
 
-    private double mistake;
+    [SerializeField] private double mistake;
 
     public int method = 0;
     
@@ -84,12 +84,13 @@ public class Calculator : MonoBehaviour
         if (x == 4)
         {
             mistake = number;
+
         }
-        if (x == 3)
+        else if (x == 3)
         {
             B[y] = number;
         }
-        else
+        else 
         {
             A[x].list[y] = number;
         }
