@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using UnityEngine;
 
 public class Calculator : MonoBehaviour
@@ -32,6 +33,8 @@ public class Calculator : MonoBehaviour
     
     private int itertion_count = 0;
 
+    [SerializeField] List<double> prev = new List<double>();
+    [SerializeField] List<double> curr = new List<double>();
 
     [SerializeField] GameObject outManager;
 
@@ -79,6 +82,7 @@ public class Calculator : MonoBehaviour
         ProcesCalculations();
     }
 
+
     public void Getnumber(int x, int y, double number)
     {
         if (x == 4)
@@ -96,11 +100,11 @@ public class Calculator : MonoBehaviour
         }
     }
 
-    public void Button(int num)
+    public void Button()
     {
-        itertion_count = num;
 
-        ProcesCalculations();
+
+        ProcesCalculations2();
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -129,6 +133,27 @@ public class Calculator : MonoBehaviour
         outManager.GetComponent<outputManageer>().outputIteration(itertion_count);
     }
 
+    public void ProcesCalculations2()
+    {
+        List<double> answer;
+
+        if (method == 0)
+        {
+            answer = ItrerationMethod2().ToList();
+        }
+        else
+        {
+            answer = SeidelMethod(SeidelMethod2()).ToList();
+        }
+
+        for (int i = 0; i < X.Count; i++)
+        {
+            Debug.Log(answer[i].ToString());
+        }
+
+        outManager.GetComponent<outputManageer>().outputNumbers(answer);
+        outManager.GetComponent<outputManageer>().outputIteration(itertion_count);
+    }
     //////////////////////////////////////////////////////////////////////////
     //////////////////////      Calculation      /////////////////////////////
     //////////////////////////////////////////////////////////////////////////
@@ -152,6 +177,55 @@ public class Calculator : MonoBehaviour
             beta[i] = B[i] / max;
             X[i] = B[i] / max;
         }
+    }
+    
+    double CalkulateFault(int iterr, int method)
+    {
+
+
+        double answer = 0;
+        if (method == 0) {
+            prev = ItrerationMethod((iterr - 1)).ToList();
+            curr = ItrerationMethod(iterr).ToList();
+            List<double> result = new List<double>();
+            for (int i = 0; i < curr.Count; i++)
+            {
+                result.Add(curr[i] - prev[i]);
+            }
+            for (int i = 0; i < result.Count; i++)
+            {
+                result[i] = Math.Abs(result[i]);
+            }
+            answer = result.Max();
+
+            List<double> ans = new List<double>();
+            ans.Add(Math.Abs( alpha[0].list.Sum(x => x)));
+            ans.Add(Math.Abs(alpha[1].list.Sum(x => x)));
+            ans.Add(Math.Abs(alpha[2].list.Sum(x => x)));
+
+            double norm = ans.Max();
+            answer = answer*norm/(1-norm) ;
+            return answer;
+        }
+        else
+        {
+            prev = SeidelMethod((iterr - 1)).ToList();
+            curr = SeidelMethod(iterr).ToList();
+            List<double> result = new List<double>();
+            for (int i = 0; i < curr.Count; i++)
+            {
+                result.Add(curr[i] - prev[i]);
+            }
+            for (int i = 0; i < result.Count; i++)
+            {
+                result[i] = Math.Abs(result[i]);
+            }
+            answer = result.Max();
+            Debug.Log(answer);
+            return answer;
+        }
+        
+
     }
 
     ////////////////////// Iteration Method /////////////////////////
@@ -206,5 +280,41 @@ public class Calculator : MonoBehaviour
         }
 
         return X;
+    }
+
+    private List<double> ItrerationMethod2()
+    {
+        itertion_count = 0;
+        transformMatrix();
+        List<double> prevX = new List<double>();
+        prevX = X;
+        
+        X = Plus(beta, Multi(alpha, X));
+        itertion_count++;
+        while (CalkulateFault(itertion_count, 0) > mistake) {
+            prevX = X;
+            X = Plus(beta, Multi(alpha, X));
+            itertion_count++;
+        }
+        
+
+        return X;
+    }
+
+    ////////////////////// Seidel Method /////////////////////////
+    private int SeidelMethod2()
+    {
+       itertion_count = 1;
+        while (true)
+        {
+            if (CalkulateFault(itertion_count, 1) <= mistake) {
+                Debug.Log(itertion_count);
+                break; }
+            itertion_count += 1;
+
+            
+        }
+
+        return itertion_count;
     }
 }
